@@ -10,20 +10,46 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {chartData: {
-        labels: ["Red", "Blue", "Yellow", "Green"],
-        datasets: [{
-            label: 'Left eye chart data',
+      data: {
+        chartData: {
+          labels: ["Red", "Blue", "Yellow", "Green"],
+          datasets: [
+            {
+              label: 'Left eye chart data',
+              type:'line',
+              // yAxisID: 'A',
+              data: [17.4, 18.5, 17.5, 19.2, 16.9],
+              // backgroundColor: [
+              //     'rgba(255, 99, 132, 0.2)',
+              //     'rgba(54, 162, 235, 0.2)',
+              //     'rgba(255, 206, 86, 0.2)',
+              //     'rgba(75, 192, 192, 0.2)',
+              //     'rgba(153, 102, 255, 0.2)',
+              //     'rgba(255, 159, 64, 0.2)'
+              // ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          },
+          {
+            label: 'Right Eye chart data',
             type:'line',
-            data: [10, 30, 90, 50, 40],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
+            // yAxisID: 'A',
+            data: [17.5, 17.5, 17.5, 16.2, 16.4],
+            // backgroundColor: [
+            //     'rgba(255, 99, 132, 0.2)',
+            //     'rgba(54, 162, 235, 0.2)',
+            //     'rgba(255, 206, 86, 0.2)',
+            //     'rgba(75, 192, 192, 0.2)',
+            //     'rgba(153, 102, 255, 0.2)',
+            //     'rgba(255, 159, 64, 0.2)'
+            // ],
             borderColor: [
                 'rgba(255,99,132,1)',
                 'rgba(54, 162, 235, 1)',
@@ -33,39 +59,72 @@ class App extends React.Component {
                 'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
-        },
-        {
-          label: 'Right Eye chart data',
-          data: [58, 70, 30, 60, 20],
-          backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: [
-              'rgba(255,99,132,1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }
-      ]
-    },
-    options: {
+          },
+          {
+            label: 'Blood pressure chart data',
+            type:'line',
+            // yAxisID: 'A',
+            data: [158/81 *5, 150/90 *5, 152/91 *5, 150/91 *5, 157/80 *5],
+            // backgroundColor: [
+            //     'rgba(255, 99, 132, 0.2)',
+            //     'rgba(54, 162, 235, 0.2)',
+            //     'rgba(255, 206, 86, 0.2)',
+            //     'rgba(75, 192, 192, 0.2)',
+            //     'rgba(153, 102, 255, 0.2)',
+            //     'rgba(255, 159, 64, 0.2)'
+            // ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+          },
+          {
+            label: 'Dose chart data',
+            // yAxisID: 'B',
+            data: [6.5, 7.0, 6.9, 6.8, 7.2],
+            // backgroundColor: [
+            //     'rgba(255, 99, 132, 0.2)',
+            //     'rgba(54, 162, 235, 0.2)',
+            //     'rgba(255, 206, 86, 0.2)',
+            //     'rgba(75, 192, 192, 0.2)',
+            //     'rgba(153, 102, 255, 0.2)',
+            //     'rgba(255, 159, 64, 0.2)'
+            // ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+          }
+        ]
+      },
+      options: {
         scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
+          yAxes: [{
+            yAxisID: 'A',
+            // type: 'linear',
+            position: 'left',
+          }, {
+            yAxisID: 'B',
+            type: 'linear',
+            position: 'right',
+            ticks: {
+              max: 1,
+              min: 0
+            }
+          }]
         }
-    }}
+        }
+      }
     };
   }
 
