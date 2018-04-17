@@ -1,0 +1,36 @@
+{
+  "name": "james-reynolds-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js",
+    "dev-react": "webpack -d --watch",
+    "seed-database": "node seed.js",
+    "populate-database": "node worker.js"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "babel-core": "^6.17.0",
+    "body-parser": "^1.15.2",
+    "chart.js": "^2.7.2",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "mongoose": "^5.0.12",
+    "react": "^15.3.2",
+    "react-chartjs-2": "^2.7.0",
+    "react-dom": "^15.3.2",
+    "request": "^2.75.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "css-loader": "^0.28.10",
+    "nodemon": "^1.11.0",
+    "style-loader": "^0.20.2",
+    "webpack": "^1.13.2"
+  }
+}
