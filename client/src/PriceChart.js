@@ -6,7 +6,7 @@ class PriceChart extends Component {
     super(props);
     this.state = {
       data: [{
-        maintainAspectRatio:true,
+        maintainAspectRatio:false,
         labels: null,
         datasets: [
           {
@@ -52,7 +52,7 @@ class PriceChart extends Component {
   
   updateData() {
     let currentData = this.state.data.slice();
-    currentData[0].labels = this.props.update.timeScale;
+    // currentData[0].labels = this.props.update.timeScale;
     currentData[0].datasets[0].data = this.props.update.leftEye;
     currentData[0].datasets[1].data = this.props.update.rightEye;
     currentData[0].datasets[2].data = this.props.update.bloodPressure;
@@ -73,7 +73,7 @@ class PriceChart extends Component {
       return (
         <div className='chart'>
           Wellness Progress
-          <Bar
+          <Line
             data={this.state.data[0]}
             width={100}
             height={30}
@@ -81,9 +81,13 @@ class PriceChart extends Component {
               {
                 scales: {
                   yAxes: [{
-                    ticks: {
-                        beginAtZero:false
+                  ticks: {
+                      beginAtZero:true
                     }
+                  }],
+                  xAxes: [{
+                    type: 'time',
+                    distribution: 'linear'
                   }]
                 }
               }
