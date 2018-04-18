@@ -16,10 +16,8 @@ class PriceChart extends Component {
         <Bar
           data={this.props.data}
           width={100}
-          height={350}
-          options={{
-            maintainAspectRatio: false
-          }}
+          height={30}
+          
         />
       </div>
     );
